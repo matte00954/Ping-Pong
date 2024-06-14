@@ -1,0 +1,26 @@
+För tester
+
+javac --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml application\Server.java
+
+javac --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml application\Client.java
+
+java --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -cp . application.Server
+
+java --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -cp . application.Client
+
+Kompilera java
+
+javac --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -d out application\Server.java application\Client.java
+
+Skapa JAR filer
+
+jar --create --file client.jar --main-class=application.Client -C out application
+
+jar --create --file server.jar --main-class=application.Server -C out application
+
+
+Köra JAR filerna
+
+java --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar client.jar
+
+java --module-path "E:\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar server.jar
